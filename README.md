@@ -7,3 +7,9 @@ BAZA DANYCH
    <br /> JDBC URL: jdbc:h2:mem:testdb
   <br />  User: sa
   <br />  Password: Puste pole (domyślnie brak hasła)
+4. Wyświetlenie tabel:
+   <br /> SHOW TABLES;
+   <br /> SELECT * FROM event;
+   <br /> SELECT * FROM report;
+   <br /> SELECT * FROM report_keywords;
+
