@@ -1,0 +1,42 @@
+### Tworzenie nowego elementu
+POST http://localhost:8080/api/events
+Content-Type: application/json
+
+{
+  "title": "Aga Wera and Hania meeting",
+  "subtitle": "Armata time",
+  "type": "PlenarySession",
+  "dateTimeStart": "27-03-2025 20:00",
+  "dateTimeEnd": "28-03-2025 03:00",
+  "description": "drink",
+  "building": "armata",
+  "room": "Hotel room"
+}
+
+### Pobieranie wszystkich eventów
+GET http://localhost:8080/api/events
+
+### Pobieranie eventu po id
+GET http://localhost:8080/api/events/e203cf9e-8722-49fc-ab75-679998fcc32b
+
+### Usuwanie eventu po id
+DELETE http://localhost:8080/api/events/1325b00b-b973-4e12-aa87-51f4076f719c
+
+### Pobieranie wszystkich raportów
+GET http://localhost:8080/api/reports
+
+### Pobieranie raportu po id
+GET http://localhost:8080/api/reports/fa95fafa-cb03-42ab-827d-237cceeb358f
+
+### Stworzenie raportu
+POST http://localhost:8080/api/reports
+Content-Type: application/json
+
+{
+  "title": "Research on AI in Medicine",
+  "author": "John Doe",
+  "description": "This report discusses the impact of AI on the healthcare industry.",
+  "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
+  "keywords": ["AI", "Healthcare", "Medicine", "Technology"],
+  "eventId": "0ecec611-9ffd-48fc-8768-b828f838a1ab"
+}

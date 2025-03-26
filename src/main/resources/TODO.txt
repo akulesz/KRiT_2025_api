@@ -1,0 +1,3 @@
+- wyswietlanie raportów danego wydarzenia
+- raporty połączyć z wydarzeniami :ppp
+- nie rozumiem czemu ta baza jakby się wyłącza i włącza??

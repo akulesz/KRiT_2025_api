@@ -1,6 +1,7 @@
 package com.example.KRiT_2025_backend.Event;
 
 import com.example.KRiT_2025_backend.Report.Report;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,13 +26,14 @@ public class Event {
     String subtitle;
     @Enumerated(EnumType.STRING)
     EventType type;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
     LocalDateTime dateTimeStart;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
     LocalDateTime dateTimeEnd;
     String description;
     String building;
     String room;
 
-    //@OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
     @OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
     List<Report> reports;
     boolean isFavourite;
