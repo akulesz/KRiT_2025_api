@@ -17,16 +17,16 @@ Content-Type: application/json
 GET http://localhost:8080/api/events
 
 ### Pobieranie eventu po id
-GET http://localhost:8080/api/events/e203cf9e-8722-49fc-ab75-679998fcc32b
+GET http://localhost:8080/api/events/73dc474d-c7b2-4819-bfe4-6ca0e4512ed4
 
 ### Usuwanie eventu po id
-DELETE http://localhost:8080/api/events/1325b00b-b973-4e12-aa87-51f4076f719c
+DELETE http://localhost:8080/api/events/4e9a7d6e-0e37-415d-be0e-9d5521624041
 
 ### Pobieranie wszystkich raportów
 GET http://localhost:8080/api/reports
 
 ### Pobieranie raportu po id
-GET http://localhost:8080/api/reports/fa95fafa-cb03-42ab-827d-237cceeb358f
+GET http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400
 
 ### Stworzenie raportu
 POST http://localhost:8080/api/reports
@@ -38,5 +38,22 @@ Content-Type: application/json
   "description": "This report discusses the impact of AI on the healthcare industry.",
   "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
   "keywords": ["AI", "Healthcare", "Medicine", "Technology"],
-  "eventId": "0ecec611-9ffd-48fc-8768-b828f838a1ab"
+  "eventId": "73dc474d-c7b2-4819-bfe4-6ca0e4512ed4"
 }
+
+### Stworzenie raportu
+POST http://localhost:8080/api/reports
+Content-Type: application/json
+
+{
+  "title": "test",
+  "author": "test",
+  "description": "This report discusses the impact of AI on the healthcare industry.",
+  "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
+  "keywords": ["AI", "Healthcare", "Medicine", "Technology"],
+  "eventId": "058404d1-fae2-4cf7-9eca-3771191b0ed9"
+}
+
+
+### Usuwanie raportu po id
+DELETE http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400

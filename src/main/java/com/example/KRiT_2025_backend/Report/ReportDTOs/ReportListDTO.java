@@ -10,6 +10,13 @@ import java.util.UUID;
 @Getter
 @Setter
 public class ReportListDTO {
+    UUID id;
     private String title;
+
+    public ReportListDTO(UUID id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
 
 }

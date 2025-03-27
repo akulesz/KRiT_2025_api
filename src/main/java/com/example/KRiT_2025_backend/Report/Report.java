@@ -1,6 +1,7 @@
 package com.example.KRiT_2025_backend.Report;
 
 import com.example.KRiT_2025_backend.Event.Event;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,18 @@ public class Report {
 
     @ManyToOne
     @JoinColumn(name="event_id")
+    @JsonIgnore
     Event event;
 
-}
+    @Override
+    public String toString() {
+        return "Report{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", pdfURL='" + pdfURL + '\'' +
+                ", keywords=" + keywords +
+                // 🔴 Nie dodawaj eventu!
+                '}';
+}}

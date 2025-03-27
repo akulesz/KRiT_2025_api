@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,7 +36,7 @@ public class Event {
     String room;
 
     @OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Report> reports;
+    List<Report> reports = new ArrayList<>();
     boolean isFavourite;
 
 

@@ -39,6 +39,8 @@ public class DataInitializer implements CommandLineRunner {
 
         eventRepository.save(event);
 
+        System.out.println("Zapisano event o ID: " + event.getId());
+
         Report report = new Report();
         report.setTitle("Raport 1");
         report.setAuthor("Jan Kowalski");
@@ -47,7 +49,9 @@ public class DataInitializer implements CommandLineRunner {
         // Dodanie słów kluczowych
         report.setKeywords(List.of("nowe technologie", "IT", "trendy", "programowanie"));
         report.setEvent(event);
-
+        //event.getReports().add(report);
         reportRepository.save(report);
+
+        System.out.print("\n\nID EVENTU "+ event.getId()+"\n\n");
     }
 }

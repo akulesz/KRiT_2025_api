@@ -1,5 +1,7 @@
 package com.example.KRiT_2025_backend.Report;
 
+import com.example.KRiT_2025_backend.Event.Event;
+import com.example.KRiT_2025_backend.Event.EventDTOs.EventCreateDTO;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportCreateDTO;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportListDTO;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportReadDTO;
@@ -25,15 +27,22 @@ public class ReportController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReportReadDTO> getReportById(@PathVariable UUID id) {
-        ReportReadDTO reportReadDTO = reportService.getReportById(id);
-        return ResponseEntity.ok(reportReadDTO);
+    public ResponseEntity<Report> getReportById(@PathVariable UUID id) {
+        Report report = reportService.getReportById(id);
+        return ResponseEntity.ok(report);
     }
 
     @PostMapping
     public ResponseEntity<Report> createReport(@RequestBody ReportCreateDTO reportCreateDTO) {
         Report createdReport = reportService.createReport(reportCreateDTO);
         return ResponseEntity.ok(createdReport);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteReportById(@PathVariable UUID id) {
+        reportService.deleteReportById(id);
+        return ResponseEntity.ok("Report deleted");
     }
 
 }

@@ -3,6 +3,7 @@ package com.example.KRiT_2025_backend.Event;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventCreateDTO;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventListDTO;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventReadDTO;
+import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportListDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -24,16 +25,29 @@ public class EventService {
         return eventRepository.findAll().stream().map(event->
                 EventListDTO.builder()
                         .title(event.getTitle())
+                        .id(event.getId())
                         .build()
         ).collect(Collectors.toList());
 
     };
 
     public EventReadDTO findEventById(UUID id) {
+        System.out.println("Szukane ID: " + id);
         Event event = eventRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException("Brak eventu o tym id"));
-        return mapEventToEventReadDto(event);
+
+        // Mapowanie raportów na DTO
+        List<ReportListDTO> reports = event.getReports().stream()
+                .map(report -> new ReportListDTO(report.getId(), report.getTitle()))
+                .toList();
+        return new EventReadDTO(
+                event.getId(),
+                event.getTitle(),
+                reports
+        );
+
     }
+
 
     @Transactional
     public Event createEvent(EventCreateDTO eventDTO) {
@@ -84,7 +98,7 @@ public class EventService {
         return EventReadDTO.builder()
                 .title(event.getTitle())
                 .id(event.getId())
-                .dateTimeStart(event.dateTimeStart)
+
                 .build();
     }
 }
