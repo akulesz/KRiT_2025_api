@@ -19,7 +19,7 @@ public class EventController {
     }
 
     @GetMapping
-    public ResponseEntity<List<EventListDTO>> getAllEvents() {
+    public ResponseEntity<List<Event>> getAllEvents() {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
 

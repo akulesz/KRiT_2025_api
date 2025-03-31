@@ -21,13 +21,14 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public List<EventListDTO> getAllEvents() {
-        return eventRepository.findAll().stream().map(event->
-                EventListDTO.builder()
-                        .title(event.getTitle())
-                        .id(event.getId())
-                        .build()
-        ).collect(Collectors.toList());
+    public List<Event> getAllEvents() {
+//        return eventRepository.findAll().stream().map(event->
+//                EventListDTO.builder()
+//                        .title(event.getTitle())
+//                        .id(event.getId())
+//                        .build()
+//        ).collect(Collectors.toList());
+        return eventRepository.findAll().stream().collect(Collectors.toList());
 
     };
 

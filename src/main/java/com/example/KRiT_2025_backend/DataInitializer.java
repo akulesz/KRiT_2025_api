@@ -30,8 +30,8 @@ public class DataInitializer implements CommandLineRunner {
         event.setTitle("Konferencja IT");
         event.setSubtitle("Nowe technologie w IT");
         event.setType(EventType.PlenarySession);
-        event.setDateTimeStart(LocalDateTime.now());
-        event.setDateTimeEnd(LocalDateTime.now().plusHours(2));
+        event.setDateTimeStart(LocalDateTime.of(2024, 9, 12, 0, 0)); // 12 września 2025, godzina 00:00
+        event.setDateTimeEnd(LocalDateTime.of(2024, 9, 12, 2, 0));
         event.setDescription("Konferencja poświęcona nowinkom technologicznym");
         event.setBuilding("Budynek A");
         event.setRoom("Sala 101");

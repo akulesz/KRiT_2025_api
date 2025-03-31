@@ -6,8 +6,8 @@ Content-Type: application/json
   "title": "Aga Wera and Hania meeting",
   "subtitle": "Armata time",
   "type": "PlenarySession",
-  "dateTimeStart": "27-03-2025 20:00",
-  "dateTimeEnd": "28-03-2025 03:00",
+  "dateTimeStart": "2024-09-12T20:00:00",
+  "dateTimeEnd":  "2024-09-12T24:00:00",
   "description": "drink",
   "building": "armata",
   "room": "Hotel room"
