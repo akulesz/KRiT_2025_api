@@ -22,7 +22,7 @@ public class ReportController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ReportListDTO>> getAllReports() {
+    public ResponseEntity<List<Report>> getAllReports() {
         return ResponseEntity.ok(reportService.getAllReports());
     }
 

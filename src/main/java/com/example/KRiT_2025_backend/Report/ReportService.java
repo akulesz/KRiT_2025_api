@@ -24,12 +24,8 @@ public class ReportService {
         this.eventRepository = eventRepository;
     }
 
-    public List<ReportListDTO> getAllReports() {
-        return reportRepository.findAll().stream().map(report ->
-                ReportListDTO.builder()
-                        .title(report.getTitle())
-                        .build()
-        ).collect(Collectors.toList());
+    public List<Report> getAllReports() {
+        return reportRepository.findAll().stream().collect(Collectors.toList());
     }
 
     public Report getReportById(UUID id) {
@@ -51,6 +47,11 @@ public class ReportService {
 
     @Transactional
     public Report createReport(ReportCreateDTO reportCreateDTO) {
+        // Znajdź wydarzenie przed utworzeniem raportu
+        Event event = eventRepository.findById(reportCreateDTO.getEventId())
+                .orElseThrow(() -> new EntityNotFoundException("Event with ID " + reportCreateDTO.getEventId() + " not found"));
+
+        // Utwórz i skonfiguruj raport
         Report report = new Report();
         report.setTitle(reportCreateDTO.getTitle());
         report.setAuthor(reportCreateDTO.getAuthor());
@@ -58,14 +59,18 @@ public class ReportService {
         report.setPdfURL(reportCreateDTO.getPdfURL());
         report.setKeywords(reportCreateDTO.getKeywords());
 
-        Event event = eventRepository.findById(reportCreateDTO.getEventId())
-                .orElseThrow(() -> new EntityNotFoundException("Event with ID " + reportCreateDTO.getEventId() + " not found"));
-
+        // Ustaw relację jednostronną (tylko raport wie o wydarzeniu)
         report.setEvent(event);
-        //event.getReports().add(report);
 
+        // Zapisz raport
         Report savedReport = reportRepository.save(report);
-        System.out.println("Zapisano raport: " + savedReport);
+        System.out.println(savedReport.title);
+        System.out.println(event.getTitle());
+
+        // Opcjonalnie, jeśli rzeczywiście potrzebujesz dwukierunkowej relacji:
+        // event.getReports().add(savedReport);
+        // eventRepository.save(event); // To może nie być konieczne z odpowiednią konfiguracją cascade
+
         return savedReport;
     }
 

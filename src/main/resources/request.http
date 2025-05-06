@@ -3,7 +3,7 @@ POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
-  "title": "Aga Wera and Hania meeting",
+  "title": "test 2 Aga Wera and Hania meeting",
   "subtitle": "Armata time",
   "type": "PlenarySession",
   "dateTimeStart": "2024-09-12T20:00:00",
@@ -17,7 +17,7 @@ Content-Type: application/json
 GET http://localhost:8080/api/events
 
 ### Pobieranie eventu po id
-GET http://localhost:8080/api/events/73dc474d-c7b2-4819-bfe4-6ca0e4512ed4
+GET http://localhost:8080/api/events/af915a56-1ac9-4250-99b0-07f022c9a4cb
 
 ### Usuwanie eventu po id
 DELETE http://localhost:8080/api/events/4e9a7d6e-0e37-415d-be0e-9d5521624041
@@ -33,12 +33,12 @@ POST http://localhost:8080/api/reports
 Content-Type: application/json
 
 {
-  "title": "Research on AI in Medicine",
+  "title": "TEST",
   "author": "John Doe",
   "description": "This report discusses the impact of AI on the healthcare industry.",
   "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
-  "keywords": ["AI", "Healthcare", "Medicine", "Technology"],
-  "eventId": "73dc474d-c7b2-4819-bfe4-6ca0e4512ed4"
+  "keywords": ["AI", "Healthcare", "Medicine", "TEST"],
+  "eventId": "3376c5f2-fa76-4ff5-98f5-3d3afcc20a09"
 }
 
 ### Stworzenie raportu
@@ -46,14 +46,17 @@ POST http://localhost:8080/api/reports
 Content-Type: application/json
 
 {
-  "title": "test",
-  "author": "test",
-  "description": "This report discusses the impact of AI on the healthcare industry.",
-  "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
-  "keywords": ["AI", "Healthcare", "Medicine", "Technology"],
-  "eventId": "058404d1-fae2-4cf7-9eca-3771191b0ed9"
+  "title": "Tytuł raportu",
+  "author": "Autor",
+  "description": "Opis raportu",
+  "pdfURL": "http://example.com/report.pdf",
+  "keywords": ["kluczowe", "słowa"],
+  "eventId": "7e38f164-bac6-485d-a78e-4ba4d6165216"
 }
 
 
 ### Usuwanie raportu po id
 DELETE http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400
+
+###
+POST http://localhost:30703/Dodaj/Hello/World

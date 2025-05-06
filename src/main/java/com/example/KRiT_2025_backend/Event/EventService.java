@@ -32,22 +32,46 @@ public class EventService {
 
     };
 
+//    public EventReadDTO findEventById(UUID id) {
+//        System.out.println("Szukane ID: " + id);
+//        Event event = eventRepository.findById(id)
+//        .orElseThrow(() -> new EntityNotFoundException("Brak eventu o tym id"));
+//
+//        // Mapowanie raportów na DTO
+//        List<ReportListDTO> reports = event.getReports().stream()
+//                .map(report -> new ReportListDTO(report.getId(), report.getTitle()))
+//                .toList();
+//        return new EventReadDTO(
+//                event.getId(),
+//                event.getTitle(),
+//                reports
+//        );
+//    }
+
     public EventReadDTO findEventById(UUID id) {
         System.out.println("Szukane ID: " + id);
-        Event event = eventRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException("Brak eventu o tym id"));
+
+        // Pobieramy wszystkie eventy
+        List<Event> events = eventRepository.findAll();
+
+        // Szukamy eventu z pasującym ID
+        Event event = events.stream()
+                .filter(e -> e.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new EntityNotFoundException("Brak eventu o tym id"));
 
         // Mapowanie raportów na DTO
         List<ReportListDTO> reports = event.getReports().stream()
                 .map(report -> new ReportListDTO(report.getId(), report.getTitle()))
                 .toList();
+
         return new EventReadDTO(
                 event.getId(),
                 event.getTitle(),
                 reports
         );
-
     }
+
 
 
     @Transactional

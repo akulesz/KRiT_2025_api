@@ -43,12 +43,12 @@
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>3.1.0</version> <!-- Możesz wybrać wersję, która Ci odpowiada -->
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-devtools</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--			<optional>true</optional>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.h2database</groupId>

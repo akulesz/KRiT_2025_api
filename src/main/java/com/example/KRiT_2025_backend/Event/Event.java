@@ -36,7 +36,8 @@ public class Event {
     String building;
     String room;
 
-    @OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
+    //@OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     List<Report> reports = new ArrayList<>();
     boolean isFavourite;
 

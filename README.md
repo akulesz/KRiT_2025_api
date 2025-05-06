@@ -13,3 +13,5 @@ BAZA DANYCH
    <br /> SELECT * FROM report;
    <br /> SELECT * FROM report_keywords;
 
+SELECT * FROM event;
+SELECT * FROM report;

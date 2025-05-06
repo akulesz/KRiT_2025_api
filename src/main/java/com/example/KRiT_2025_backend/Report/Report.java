@@ -4,6 +4,7 @@ import com.example.KRiT_2025_backend.Event.Event;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Entity
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class Report {
     @Id
@@ -43,6 +45,6 @@ public class Report {
                 ", description='" + description + '\'' +
                 ", pdfURL='" + pdfURL + '\'' +
                 ", keywords=" + keywords +
-                // 🔴 Nie dodawaj eventu!
+
                 '}';
 }}
