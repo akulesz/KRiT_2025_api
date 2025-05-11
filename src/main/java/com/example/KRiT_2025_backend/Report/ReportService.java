@@ -47,11 +47,7 @@ public class ReportService {
 
     @Transactional
     public Report createReport(ReportCreateDTO reportCreateDTO) {
-        // Znajdź wydarzenie przed utworzeniem raportu
-        Event event = eventRepository.findById(reportCreateDTO.getEventId())
-                .orElseThrow(() -> new EntityNotFoundException("Event with ID " + reportCreateDTO.getEventId() + " not found"));
 
-        // Utwórz i skonfiguruj raport
         Report report = new Report();
         report.setTitle(reportCreateDTO.getTitle());
         report.setAuthor(reportCreateDTO.getAuthor());
@@ -59,17 +55,8 @@ public class ReportService {
         report.setPdfURL(reportCreateDTO.getPdfURL());
         report.setKeywords(reportCreateDTO.getKeywords());
 
-        // Ustaw relację jednostronną (tylko raport wie o wydarzeniu)
-        report.setEvent(event);
-
-        // Zapisz raport
         Report savedReport = reportRepository.save(report);
         System.out.println(savedReport.title);
-        System.out.println(event.getTitle());
-
-        // Opcjonalnie, jeśli rzeczywiście potrzebujesz dwukierunkowej relacji:
-        // event.getReports().add(savedReport);
-        // eventRepository.save(event); // To może nie być konieczne z odpowiednią konfiguracją cascade
 
         return savedReport;
     }

@@ -3,6 +3,8 @@ package com.example.KRiT_2025_backend.Event;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventCreateDTO;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventListDTO;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventReadDTO;
+import com.example.KRiT_2025_backend.Report.Report;
+import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportCreateDTO;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportListDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EnumType;
@@ -11,7 +13,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import com.example.KRiT_2025_backend.Report.ReportRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -20,33 +24,16 @@ import java.util.stream.Collectors;
 public class EventService {
     @Autowired
     private EventRepository eventRepository;
+    private ReportRepository reportRepository;
+
+    public EventService(ReportRepository reportRepository, EventRepository eventRepository) {
+        this.reportRepository = reportRepository;
+        this.eventRepository = eventRepository;
+    }
 
     public List<Event> getAllEvents() {
-//        return eventRepository.findAll().stream().map(event->
-//                EventListDTO.builder()
-//                        .title(event.getTitle())
-//                        .id(event.getId())
-//                        .build()
-//        ).collect(Collectors.toList());
         return eventRepository.findAll().stream().collect(Collectors.toList());
-
     };
-
-//    public EventReadDTO findEventById(UUID id) {
-//        System.out.println("Szukane ID: " + id);
-//        Event event = eventRepository.findById(id)
-//        .orElseThrow(() -> new EntityNotFoundException("Brak eventu o tym id"));
-//
-//        // Mapowanie raportów na DTO
-//        List<ReportListDTO> reports = event.getReports().stream()
-//                .map(report -> new ReportListDTO(report.getId(), report.getTitle()))
-//                .toList();
-//        return new EventReadDTO(
-//                event.getId(),
-//                event.getTitle(),
-//                reports
-//        );
-//    }
 
     public EventReadDTO findEventById(UUID id) {
         System.out.println("Szukane ID: " + id);
@@ -72,8 +59,6 @@ public class EventService {
         );
     }
 
-
-
     @Transactional
     public Event createEvent(EventCreateDTO eventDTO) {
         Event event = new Event();
@@ -85,7 +70,16 @@ public class EventService {
         event.description = eventDTO.getDescription();
         event.building=eventDTO.getBuilding();
         event.room=eventDTO.getRoom();
+        //Event savedEvent = eventRepository.save(event);
 
+        if(eventDTO.getReportsId() != null){
+            for (UUID reportId : eventDTO.getReportsId()) {
+                Report report = reportRepository.findById(reportId).
+                        orElseThrow(() -> new RuntimeException("Report not found with id: " + reportId));
+                report.setEvent(event);
+                event.getReports().add(report);
+            }
+        }
         return eventRepository.save(event);
     }
 
@@ -98,7 +92,6 @@ public class EventService {
     }
 
 
-    //NIE TESTOWANE CZEKAM NA FRONTEND
     @Transactional
     public EventReadDTO updateEvent(UUID id, EventCreateDTO eventDTO) {
         Event event = eventRepository.findById(id)
@@ -112,6 +105,17 @@ public class EventService {
         event.setDescription(eventDTO.getDescription());
         event.setBuilding(eventDTO.getBuilding());
         event.setRoom(eventDTO.getRoom());
+
+        //usuwamy liste reportow
+        event.getReports().clear();
+        if(eventDTO.getReportsId() != null){
+            for (UUID reportId : eventDTO.getReportsId()) {
+                Report report = reportRepository.findById(reportId).
+                        orElseThrow(() -> new RuntimeException("Report not found with id: " + reportId));
+                report.setEvent(event);
+                event.getReports().add(report);
+            }
+        }
 
         eventRepository.save(event);
         return mapEventToEventReadDto(event);

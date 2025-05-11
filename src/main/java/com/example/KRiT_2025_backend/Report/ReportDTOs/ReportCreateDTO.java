@@ -16,5 +16,5 @@ public class ReportCreateDTO {
     private String description;
     private String pdfURL;
     private List<String> keywords;
-    private UUID eventId;
+    //private UUID eventId;
 }
