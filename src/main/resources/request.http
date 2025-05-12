@@ -24,10 +24,10 @@ GET http://localhost:8080/api/events
 GET http://localhost:8080/api/events/af915a56-1ac9-4250-99b0-07f022c9a4cb
 
 ### Usuwanie eventu po id
-DELETE http://localhost:8080/api/events/4e9a7d6e-0e37-415d-be0e-9d5521624041
+DELETE http://localhost:8080/api/events/09e64104-e04f-4378-9c8f-ef9ed808ee9a
 
 ###Edycja eventu
-PUT http://localhost:8080/api/events/35fbab10-a9ce-4d3c-a033-cb8faef7f50a
+PUT http://localhost:8080/api/events/09e64104-e04f-4378-9c8f-ef9ed808ee9a
 Content-Type: application/json
 
 {
@@ -41,7 +41,6 @@ Content-Type: application/json
   "room": "Sala 101",
   "reportsId": []
 }
-
 
 
 ### Pobieranie wszystkich raportów

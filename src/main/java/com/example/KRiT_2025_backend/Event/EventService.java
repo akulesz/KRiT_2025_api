@@ -93,7 +93,7 @@ public class EventService {
 
 
     @Transactional
-    public EventReadDTO updateEvent(UUID id, EventCreateDTO eventDTO) {
+    public Event updateEvent(UUID id, EventCreateDTO eventDTO) {
         Event event = eventRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Brak eventu o id: " + id));
 
@@ -118,7 +118,7 @@ public class EventService {
         }
 
         eventRepository.save(event);
-        return mapEventToEventReadDto(event);
+        return event;
     }
 
 
