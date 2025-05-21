@@ -17,6 +17,7 @@ import com.example.KRiT_2025_backend.Report.ReportRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -83,14 +84,39 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    @Transactional
-    public void deleteEventById(UUID id) {
-        if (!eventRepository.existsById(id)) {
-            throw new EntityNotFoundException("Brak eventu o id: " + id);
-        }
-        eventRepository.deleteById(id);
+//    @Transactional
+//    public void deleteEventById(UUID id) {
+//        if (!eventRepository.existsById(id)) {
+//            throw new EntityNotFoundException("Brak eventu o id: " + id);
+//        }
+//
+//        EventReadDTO event = findEventById(id);
+//
+//        if(event.getReports() != null){
+//            for (ReportListDTO report : event.getReports()) {
+//                Report rep = reportRepository.findById(report.getId()).
+//                        orElseThrow(() -> new RuntimeException("Report not found with id: " + report.getId()));
+//                rep.setEvent(null);
+//
+//            }
+//            event.getReports().clear();
+//        }
+//
+//        eventRepository.deleteById(id);
+//    }
+
+@Transactional
+public void deleteEventById(UUID id) {
+    if (!eventRepository.existsById(id)) {
+        throw new EntityNotFoundException("Brak eventu o id: " + id);
     }
 
+    // Masowa aktualizacja raportów, które miały ten event
+    reportRepository.clearEventReference(id);
+
+    // Teraz usuń event
+    eventRepository.deleteById(id);
+}
 
     @Transactional
     public Event updateEvent(UUID id, EventCreateDTO eventDTO) {

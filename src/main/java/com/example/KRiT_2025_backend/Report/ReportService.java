@@ -61,6 +61,22 @@ public class ReportService {
         return savedReport;
     }
 
+    @Transactional
+    public Report updateReport(UUID id, ReportCreateDTO reportDTO) {
+        Report report = reportRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Brak raportu o id: " + id));
+
+        report.setTitle(reportDTO.getTitle());
+        report.setDescription(reportDTO.getDescription());
+        report.setAuthor(reportDTO.getAuthor());
+        report.setPdfURL(reportDTO.getPdfURL());
+        report.setKeywords(reportDTO.getKeywords());
+
+        reportRepository.save(report);
+        return report;
+    }
+
+
 
     @Transactional
     public void deleteReportById(UUID id) {

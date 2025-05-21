@@ -4,12 +4,12 @@ Content-Type: application/json
 
 {
   "title": "test 2 Aga Wera and Hania meeting",
-  "subtitle": "Armata time",
+  "subtitle": "together time",
   "type": "PlenarySession",
   "dateTimeStart": "2024-09-12T20:00:00.000",
   "dateTimeEnd":  "2024-09-12T24:00:00.000",
   "description": "drink",
-  "building": "armata",
+  "building": "22",
   "room": "Hotel room",
   "reportsId": [
 
@@ -24,7 +24,7 @@ GET http://localhost:8080/api/events
 GET http://localhost:8080/api/events/af915a56-1ac9-4250-99b0-07f022c9a4cb
 
 ### Usuwanie eventu po id
-DELETE http://localhost:8080/api/events/09e64104-e04f-4378-9c8f-ef9ed808ee9a
+DELETE http://localhost:8080/api/events/bff78941-2e84-4fac-9560-6be035d768d5
 
 ###Edycja eventu
 PUT http://localhost:8080/api/events/09e64104-e04f-4378-9c8f-ef9ed808ee9a
