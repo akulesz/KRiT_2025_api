@@ -21,7 +21,12 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
     String title;
-    String author;
+
+    @ElementCollection
+    @CollectionTable(name = "report_authors", joinColumns = @JoinColumn(name = "report_id"))
+    @Column(name = "author")
+    List<String> authors;
+
     String description;
     String pdfURL;
 
@@ -41,7 +46,7 @@ public class Report {
         return "Report{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
+                ", author='" + authors + '\'' +
                 ", description='" + description + '\'' +
                 ", pdfURL='" + pdfURL + '\'' +
                 ", keywords=" + keywords +

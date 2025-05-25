@@ -55,23 +55,12 @@ Content-Type: application/json
 
 {
   "title": "TEST",
-  "author": "John Doe",
+  "authors": ["Jan Kowalski", "Anna Nowak"],
   "description": "This report discusses the impact of AI on the healthcare industry.",
   "pdfURL": "http://example.com/reports/ai-in-medicine.pdf",
   "keywords": ["AI", "Healthcare", "Medicine", "TEST"]
 }
 
-### Stworzenie raportu
-POST http://localhost:8080/api/reports
-Content-Type: application/json
-
-{
-  "title": "3",
-  "author": "2",
-  "description": "2",
-  "pdfURL": "2",
-  "keywords": ["AI", "Healthcare", "Medicine", "TEST"]
-}
 
 ### Stworzenie raportu
 POST http://localhost:8080/api/reports
@@ -85,6 +74,19 @@ Content-Type: application/json
   "keywords": ["kluczowe", "słowa"],
   "eventId": "7e38f164-bac6-485d-a78e-4ba4d6165216"
 }
+
+###Edycja raportu
+PUT http://localhost:8080/api/reports/adf6374a-ee74-426e-8f5e-47474ba83bab
+Content-Type: application/json
+
+{
+  "title": "3",
+  "author": "2",
+  "description": "2",
+  "pdfURL": "2",
+  "keywords": ["AI", "Healthcare", "Medicine", "TEST"]
+}
+
 
 
 ### Usuwanie raportu po id

@@ -40,7 +40,7 @@ public class ReportService {
         return ReportReadDTO.builder()
                 .id(report.getId())
                 .title(report.getTitle())
-                .author(report.getAuthor())
+                .authors(report.getAuthors())
                 .eventId(report.event.getId())
                 .build();
     }
@@ -50,7 +50,7 @@ public class ReportService {
 
         Report report = new Report();
         report.setTitle(reportCreateDTO.getTitle());
-        report.setAuthor(reportCreateDTO.getAuthor());
+        report.setAuthors(reportCreateDTO.getAuthors());
         report.setDescription(reportCreateDTO.getDescription());
         report.setPdfURL(reportCreateDTO.getPdfURL());
         report.setKeywords(reportCreateDTO.getKeywords());
@@ -68,7 +68,7 @@ public class ReportService {
 
         report.setTitle(reportDTO.getTitle());
         report.setDescription(reportDTO.getDescription());
-        report.setAuthor(reportDTO.getAuthor());
+        report.setAuthors(reportDTO.getAuthors());
         report.setPdfURL(reportDTO.getPdfURL());
         report.setKeywords(reportDTO.getKeywords());
 

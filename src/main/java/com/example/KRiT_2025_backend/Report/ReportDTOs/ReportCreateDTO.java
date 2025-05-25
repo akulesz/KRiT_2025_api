@@ -12,7 +12,7 @@ import java.util.UUID;
 @Setter
 public class ReportCreateDTO {
     private String title;
-    private String author;
+    private List<String> authors;
     private String description;
     private String pdfURL;
     private List<String> keywords;
