@@ -27,6 +27,8 @@ public class Report {
     @Column(name = "author")
     List<String> authors;
 
+    @Lob
+    @Column
     String description;
     String pdfURL;
 
