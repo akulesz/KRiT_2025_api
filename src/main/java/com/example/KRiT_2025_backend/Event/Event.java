@@ -27,15 +27,17 @@ public class Event {
     String subtitle;
     @Enumerated(EnumType.STRING)
     EventType type;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     LocalDateTime dateTimeStart;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     LocalDateTime dateTimeEnd;
+
     String description;
     String building;
     String room;
 
-    @OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
+    //@OneToMany(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     List<Report> reports = new ArrayList<>();
     boolean isFavourite;
 

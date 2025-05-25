@@ -24,12 +24,8 @@ public class ReportService {
         this.eventRepository = eventRepository;
     }
 
-    public List<ReportListDTO> getAllReports() {
-        return reportRepository.findAll().stream().map(report ->
-                ReportListDTO.builder()
-                        .title(report.getTitle())
-                        .build()
-        ).collect(Collectors.toList());
+    public List<Report> getAllReports() {
+        return reportRepository.findAll().stream().collect(Collectors.toList());
     }
 
     public Report getReportById(UUID id) {
@@ -44,30 +40,42 @@ public class ReportService {
         return ReportReadDTO.builder()
                 .id(report.getId())
                 .title(report.getTitle())
-                .author(report.getAuthor())
+                .authors(report.getAuthors())
                 .eventId(report.event.getId())
                 .build();
     }
 
     @Transactional
     public Report createReport(ReportCreateDTO reportCreateDTO) {
+
         Report report = new Report();
         report.setTitle(reportCreateDTO.getTitle());
-        report.setAuthor(reportCreateDTO.getAuthor());
+        report.setAuthors(reportCreateDTO.getAuthors());
         report.setDescription(reportCreateDTO.getDescription());
         report.setPdfURL(reportCreateDTO.getPdfURL());
         report.setKeywords(reportCreateDTO.getKeywords());
 
-        Event event = eventRepository.findById(reportCreateDTO.getEventId())
-                .orElseThrow(() -> new EntityNotFoundException("Event with ID " + reportCreateDTO.getEventId() + " not found"));
-
-        report.setEvent(event);
-        //event.getReports().add(report);
-
         Report savedReport = reportRepository.save(report);
-        System.out.println("Zapisano raport: " + savedReport);
+        System.out.println(savedReport.title);
+
         return savedReport;
     }
+
+    @Transactional
+    public Report updateReport(UUID id, ReportCreateDTO reportDTO) {
+        Report report = reportRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Brak raportu o id: " + id));
+
+        report.setTitle(reportDTO.getTitle());
+        report.setDescription(reportDTO.getDescription());
+        report.setAuthors(reportDTO.getAuthors());
+        report.setPdfURL(reportDTO.getPdfURL());
+        report.setKeywords(reportDTO.getKeywords());
+
+        reportRepository.save(report);
+        return report;
+    }
+
 
 
     @Transactional

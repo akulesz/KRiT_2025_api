@@ -20,7 +20,7 @@ import java.util.UUID;
 public class EventReadDTO {
     UUID id;
     String title;
-    private List<ReportListDTO> reports;
+    public List<ReportListDTO> reports;
 
     public EventReadDTO(UUID id, String title, List<ReportListDTO> reports) {
         this.id = id;

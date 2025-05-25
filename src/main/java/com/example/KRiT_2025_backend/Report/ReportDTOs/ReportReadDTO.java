@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -12,6 +13,6 @@ import java.util.UUID;
 public class ReportReadDTO {
     private UUID id;
     private String title;
-    private String author;
+    private List<String> authors;
     private UUID eventId;
 }

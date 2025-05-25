@@ -22,7 +22,7 @@ public class ReportController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ReportListDTO>> getAllReports() {
+    public ResponseEntity<List<Report>> getAllReports() {
         return ResponseEntity.ok(reportService.getAllReports());
     }
 
@@ -38,6 +38,10 @@ public class ReportController {
         return ResponseEntity.ok(createdReport);
     }
 
+    @PutMapping("/{id}")
+    public Report updateReport(@PathVariable UUID id, @RequestBody ReportCreateDTO reportDTO) {
+        return reportService.updateReport(id, reportDTO);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteReportById(@PathVariable UUID id) {

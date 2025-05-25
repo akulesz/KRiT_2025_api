@@ -25,13 +25,13 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        System.out.println("🔥 DataInitializer odpalony!");
         Event event = new Event();
         event.setTitle("Konferencja IT");
         event.setSubtitle("Nowe technologie w IT");
         event.setType(EventType.PlenarySession);
-        event.setDateTimeStart(LocalDateTime.now());
-        event.setDateTimeEnd(LocalDateTime.now().plusHours(2));
+        event.setDateTimeStart(LocalDateTime.of(2024, 9, 12, 0, 0)); // 12 września 2025, godzina 00:00
+        event.setDateTimeEnd(LocalDateTime.of(2024, 9, 12, 2, 0));
         event.setDescription("Konferencja poświęcona nowinkom technologicznym");
         event.setBuilding("Budynek A");
         event.setRoom("Sala 101");
@@ -43,7 +43,7 @@ public class DataInitializer implements CommandLineRunner {
 
         Report report = new Report();
         report.setTitle("Raport 1");
-        report.setAuthor("Jan Kowalski");
+        report.setAuthors(List.of("Jan Kowalski", "aga"));
         report.setDescription("Raport o nowych trendach w IT");
         report.setPdfURL("https://example.com/raport.pdf");
         // Dodanie słów kluczowych
@@ -53,5 +53,18 @@ public class DataInitializer implements CommandLineRunner {
         reportRepository.save(report);
 
         System.out.print("\n\nID EVENTU "+ event.getId()+"\n\n");
+
+        Report report1 = new Report();
+        report1.setTitle("Raport 2");
+        report1.setAuthors(List.of("Jan Kowalski", "aga"));
+        report1.setDescription("Raport o nowych trendach w IT");
+        report1.setPdfURL("https://example.com/raport.pdf");
+        // Dodanie słów kluczowych
+        report1.setKeywords(List.of("nowe technologie", "IT", "trendy", "programowanie"));
+        report1.setEvent(event);
+        //event.getReports().add(report);
+        reportRepository.save(report1);
+
+        //System.out.print("\n\nID EVENTU "+ report1.getId()+"\n\n");
     }
 }
