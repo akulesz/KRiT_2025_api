@@ -32,7 +32,7 @@ public class Event {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     LocalDateTime dateTimeEnd;
 
-    String description;
+    //String description;
     String building;
     String room;
 

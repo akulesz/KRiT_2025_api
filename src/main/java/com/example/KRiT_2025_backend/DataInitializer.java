@@ -1,5 +1,7 @@
 package com.example.KRiT_2025_backend;
 
+import com.example.KRiT_2025_backend.Auth.AppUser;
+import com.example.KRiT_2025_backend.Auth.AppUserRepository;
 import com.example.KRiT_2025_backend.Event.Event;
 import com.example.KRiT_2025_backend.Event.EventType;
 import com.example.KRiT_2025_backend.Report.Report;
@@ -10,6 +12,7 @@ import com.example.KRiT_2025_backend.Report.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,16 +26,37 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     ReportRepository reportRepository;
 
+    @Autowired
+    private AppUserRepository appUserRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println("🔥 DataInitializer odpalony!");
+
+        String adminUsername = "admin";
+        String adminRawPassword = "admin123";
+
+        if (appUserRepository.findByUsername(adminUsername).isEmpty()) {
+            AppUser admin = new AppUser();
+            admin.setUsername(adminUsername);
+            admin.setPassword(passwordEncoder.encode(adminRawPassword));
+            admin.setRole("admin");
+            appUserRepository.save(admin);
+            System.out.println("Admin został dodany do bazy.");
+        } else {
+            System.out.println("Admin już istnieje w bazie.");
+        }
+
         Event event = new Event();
         event.setTitle("Konferencja IT");
         event.setSubtitle("Nowe technologie w IT");
         event.setType(EventType.PlenarySession);
         event.setDateTimeStart(LocalDateTime.of(2024, 9, 12, 0, 0)); // 12 września 2025, godzina 00:00
         event.setDateTimeEnd(LocalDateTime.of(2024, 9, 12, 2, 0));
-        event.setDescription("Konferencja poświęcona nowinkom technologicznym");
+        //event.setDescription("Konferencja poświęcona nowinkom technologicznym");
         event.setBuilding("Budynek A");
         event.setRoom("Sala 101");
         event.setFavourite(false);

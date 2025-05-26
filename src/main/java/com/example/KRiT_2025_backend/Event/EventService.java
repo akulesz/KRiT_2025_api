@@ -68,7 +68,7 @@ public class EventService {
         event.type = eventDTO.getType();
         event.dateTimeStart = eventDTO.getDateTimeStart();
         event.dateTimeEnd = eventDTO.getDateTimeEnd();
-        event.description = eventDTO.getDescription();
+        //event.description = eventDTO.getDescription();
         event.building=eventDTO.getBuilding();
         event.room=eventDTO.getRoom();
         //Event savedEvent = eventRepository.save(event);
@@ -128,7 +128,7 @@ public void deleteEventById(UUID id) {
         event.setType(eventDTO.getType());
         event.setDateTimeStart(eventDTO.getDateTimeStart());
         event.setDateTimeEnd(eventDTO.getDateTimeEnd());
-        event.setDescription(eventDTO.getDescription());
+        //event.setDescription(eventDTO.getDescription());
         event.setBuilding(eventDTO.getBuilding());
         event.setRoom(eventDTO.getRoom());
 

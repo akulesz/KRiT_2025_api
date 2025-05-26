@@ -75,6 +75,17 @@ Content-Type: application/json
   "eventId": "7e38f164-bac6-485d-a78e-4ba4d6165216"
 }
 
+### Logowanie
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}
+
+
+
 ###Edycja raportu
 PUT http://localhost:8080/api/reports/adf6374a-ee74-426e-8f5e-47474ba83bab
 Content-Type: application/json
