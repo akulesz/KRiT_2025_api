@@ -1,6 +1,5 @@
 package com.example.KRiT_2025_backend.Auth;
 
-
 import jakarta.persistence.*;
         import lombok.*;
 

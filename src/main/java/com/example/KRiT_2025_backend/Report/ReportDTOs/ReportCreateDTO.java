@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.UUID;
 
 @Builder
 @Getter
@@ -16,5 +15,4 @@ public class ReportCreateDTO {
     private String description;
     private String pdfURL;
     private List<String> keywords;
-    //private UUID eventId;
 }

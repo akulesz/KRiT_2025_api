@@ -1,10 +1,10 @@
-### Tworzenie nowego elementu
+### Tworzenie nowego eventu
 POST http://localhost:8080/api/events
 Content-Type: application/json
 
 {
-  "title": "test 2 Aga Wera and Hania meeting",
-  "subtitle": "together time",
+  "title": "Test title",
+  "subtitle": "test",
   "type": "PlenarySession",
   "dateTimeStart": "2024-09-12T20:00:00.000",
   "dateTimeEnd":  "2024-09-12T24:00:00.000",
@@ -12,10 +12,8 @@ Content-Type: application/json
   "building": "22",
   "room": "Hotel room",
   "reportsId": [
-
   ]
 }
-
 
 ### Pobieranie wszystkich eventów
 GET http://localhost:8080/api/events
@@ -42,12 +40,8 @@ Content-Type: application/json
   "reportsId": []
 }
 
-
 ### Pobieranie wszystkich raportów
 GET http://localhost:8080/api/reports
-
-### Pobieranie raportu po id
-GET http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400
 
 ### Stworzenie raportu
 POST http://localhost:8080/api/reports
@@ -61,29 +55,8 @@ Content-Type: application/json
   "keywords": ["AI", "Healthcare", "Medicine", "TEST"]
 }
 
-
-### Stworzenie raportu
-POST http://localhost:8080/api/reports
-Content-Type: application/json
-
-{
-  "title": "Tytuł raportu",
-  "author": "Autor",
-  "description": "Opis raportu",
-  "pdfURL": "http://example.com/report.pdf",
-  "keywords": ["kluczowe", "słowa"],
-  "eventId": "7e38f164-bac6-485d-a78e-4ba4d6165216"
-}
-
-### Logowanie
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "username": "admin",
-  "password": "admin123"
-}
-
+### Pobieranie raportu po id
+GET http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400
 
 
 ###Edycja raportu
@@ -98,10 +71,14 @@ Content-Type: application/json
   "keywords": ["AI", "Healthcare", "Medicine", "TEST"]
 }
 
-
-
 ### Usuwanie raportu po id
 DELETE http://localhost:8080/api/reports/bc09b942-2cbf-4d59-a2fe-4f3d5a647400
 
-###
-POST http://localhost:30703/Dodaj/Hello/World
+### Logowanie
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin123"
+}

@@ -17,6 +17,4 @@ public class ReportListDTO {
         this.id = id;
         this.title = title;
     }
-
-
 }

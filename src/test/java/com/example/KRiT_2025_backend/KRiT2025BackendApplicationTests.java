@@ -9,5 +9,4 @@ class KRiT2025BackendApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

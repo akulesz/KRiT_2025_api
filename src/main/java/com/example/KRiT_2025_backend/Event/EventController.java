@@ -1,7 +1,6 @@
 package com.example.KRiT_2025_backend.Event;
 
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventCreateDTO;
-import com.example.KRiT_2025_backend.Event.EventDTOs.EventListDTO;
 import com.example.KRiT_2025_backend.Event.EventDTOs.EventReadDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +38,7 @@ public class EventController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEventById(@PathVariable UUID id) {
         eventService.deleteEventById(id);
-        return ResponseEntity.ok("✅ Event o ID " + id + " został poprawnie usunięty."); //204 No Content po usunięciu
+        return ResponseEntity.ok("Event o ID " + id + " został poprawnie usunięty.");
     }
 
     @PutMapping("/{id}")

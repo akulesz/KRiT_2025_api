@@ -52,6 +52,5 @@ public class Report {
                 ", description='" + description + '\'' +
                 ", pdfURL='" + pdfURL + '\'' +
                 ", keywords=" + keywords +
-
                 '}';
 }}

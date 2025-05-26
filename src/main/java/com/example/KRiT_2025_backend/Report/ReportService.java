@@ -1,10 +1,7 @@
 package com.example.KRiT_2025_backend.Report;
 
-import com.example.KRiT_2025_backend.Event.Event;
-import com.example.KRiT_2025_backend.Event.EventDTOs.EventCreateDTO;
 import com.example.KRiT_2025_backend.Event.EventRepository;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportCreateDTO;
-import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportListDTO;
 import com.example.KRiT_2025_backend.Report.ReportDTOs.ReportReadDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -30,7 +27,7 @@ public class ReportService {
 
     public Report getReportById(UUID id) {
         Report report = reportRepository.findById(id)
-                .orElseThrow(()-> new EntityNotFoundException("Nie znaleziono reportu o id " + id ));
+                .orElseThrow(()-> new EntityNotFoundException("Nie znaleziono raportu o id " + id ));
 
         return report;
     }
@@ -76,8 +73,6 @@ public class ReportService {
         return report;
     }
 
-
-
     @Transactional
     public void deleteReportById(UUID id) {
         if(!reportRepository.existsById(id)) {
@@ -85,8 +80,4 @@ public class ReportService {
         }
         reportRepository.deleteById(id);
     }
-
-
-
 }
-
