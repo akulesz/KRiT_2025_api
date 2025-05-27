@@ -13,7 +13,8 @@ Content-Type: application/json
   "room": "Hotel room",
   "reportsId": [
 
-  ]
+  ],
+  "favourite": true
 }
 
 
