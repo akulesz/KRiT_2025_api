@@ -11,7 +11,7 @@ autorzy: [Agnieszka Kulesz](https://github.com/agatherat), [Weronika Koterba](ht
 
 ## Opis projektu
 To repozytorium zawiera serwerową część aplikacji MAK KRiT stworzonej na potrzeby Konferencji Radiokomunikacji i Teleinformatyki 2025.
-Frontend aplikacji dostępny [tutaj](https://github.com/haniagibus/KRiT_2025_app)
+<br/>Frontend aplikacji dostępny [tutaj](https://github.com/haniagibus/KRiT_2025_app)
 
 ## Wymagania wstępne
 - Java: 21 lub nowsza
