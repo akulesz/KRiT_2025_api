@@ -35,9 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
                         username, null, List.of(new SimpleGrantedAuthority("admin"))
                 );
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (Exception e) {
-                // Token niepoprawny – brak autoryzacji
-            }
+            } catch (Exception ignored) {}
         }
 
         filterChain.doFilter(request, response);

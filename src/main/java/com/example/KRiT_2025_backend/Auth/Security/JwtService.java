@@ -12,7 +12,7 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private final String SECRET_KEY = "tajny_klucz_jwt_ktory_powinien_byc_dlugi_i_trzymany_bezpiecznie";
+    private final String SECRET_KEY = "b64encodedLongRandomSecretHere";
     private final Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
 
     public String generateToken(Authentication authentication) {
@@ -27,8 +27,8 @@ public class JwtService {
                 .sign(algorithm);
     }
     public String extractUsername(String token) {
-        JWTVerifier verifier = JWT.require(algorithm).build(); // Weryfikator JWT
-        DecodedJWT jwt = verifier.verify(token);               // Weryfikuj i dekoduj token
-        return jwt.getSubject();                               // Zwróć subject, czyli username
+        JWTVerifier verifier = JWT.require(algorithm).build();
+        DecodedJWT jwt = verifier.verify(token);
+        return jwt.getSubject();
     }
 }

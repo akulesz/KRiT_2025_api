@@ -1,6 +1,6 @@
 package com.example.KRiT_2025_backend.Auth.Security;
 
-import com.example.KRiT_2025_backend.Auth.CustomUserDetailsService;
+import com.example.KRiT_2025_backend.Auth.AppUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtFilter jwtFilter;
-    private final CustomUserDetailsService userDetailsService;
+    private final AppUserService userDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

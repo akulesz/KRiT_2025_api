@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.*;
 
 @Service
 @RequiredArgsConstructor
-public class CustomUserDetailsService implements UserDetailsService {
+public class AppUserService implements UserDetailsService {
 
     private final AppUserRepository userRepository;
 
