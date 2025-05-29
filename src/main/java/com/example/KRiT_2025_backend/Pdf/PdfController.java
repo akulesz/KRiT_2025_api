@@ -45,16 +45,21 @@ public class PdfController {
             try (PDDocument document = PDDocument.load(filePath.toFile())) {
                 PDFTextStripper stripper = new PDFTextStripper();
                 String rawText = stripper.getText(document);
+                System.out.println("rawtext = " + rawText);
                 String text = cleanText(rawText);
+                System.out.println("text = " + text);
 
                 FontAwarePDFTextStripper fontStripper = new FontAwarePDFTextStripper();
-                fontStripper.getText(document);  // wykonuje parsowanie
+                fontStripper.getText(document);
                 List<TextLine> lines = fontStripper.getTextLines();
+                for (TextLine line : lines) {
+                    System.out.println("line = " + line.text);
+                }
 
                 Map<String, String> result = new HashMap<>();
                 result.put("abstract", extractAbstract(text));
                 result.put("keywords", extractKeywords(text));
-                result.put("title", extractTitle(lines));
+                result.put("title", extractTitle2(lines));
                 result.put("authors", extractAuthors(lines));
 
                 String extractedTitle = extractTitle(lines);
@@ -68,8 +73,9 @@ public class PdfController {
 
                 fileNameToTitleMap.put(uniqueFileName, extractedTitle);
 
-                String baseUrl = "http://10.0.2.2:8080";
-                String baseUrl2 = "http://localhost:8080";
+                String baseUrl2 = "http://172.20.10.4:8080";
+                String baseUrl1 = "http://10.0.2.2:8080";
+                String baseUrl = "http://localhost:8080";
                 String pdfUrl = baseUrl + "/uploads/" + uniqueFileName;
                 result.put("pdfUrl", pdfUrl);
 
@@ -216,6 +222,107 @@ public class PdfController {
             } else {
                 break;
             }
+        }
+
+        return String.join(" ", titleLines).trim();
+    }
+
+    private String extractTitle2(List<TextLine> textLines) {
+        List<String> titleLines = new ArrayList<>();
+        Double maxFontSize = null;
+        int startIndex = skipUntilKrit(textLines);
+
+        System.out.println("=== DEBUG extractTitle ===");
+        System.out.println("startIndex po skipUntilKrit: " + startIndex);
+        System.out.println("Całkowita liczba linii: " + textLines.size());
+
+        // Debug: wyświetl pierwsze kilka linii po "KRiT 2025"
+        for (int i = startIndex; i < Math.min(startIndex + 10, textLines.size()); i++) {
+            TextLine line = textLines.get(i);
+            System.out.println("Linia " + i + ": '" + line.text + "' (fontSize: " + line.fontSize + ")");
+        }
+
+        // Znajdź maksymalny rozmiar czcionki w pierwszych 10 liniach po "KRiT 2025"
+        double actualMaxFontSize = 0;
+        for (int i = startIndex; i < Math.min(startIndex + 10, textLines.size()); i++) {
+            TextLine line = textLines.get(i);
+            if (!line.text.trim().isEmpty() && line.fontSize > actualMaxFontSize) {
+                actualMaxFontSize = line.fontSize;
+            }
+        }
+
+        System.out.println("Maksymalny rozmiar czcionki znaleziony: " + actualMaxFontSize);
+
+        // Zbierz wszystkie linie z maksymalnym rozmiarem czcionki
+        for (int i = startIndex; i < textLines.size(); i++) {
+            TextLine line = textLines.get(i);
+
+            // Pomiń puste linie
+            if (line.text.trim().isEmpty()) {
+                continue;
+            }
+
+            System.out.println("Sprawdzam linię: '" + line.text + "' (fontSize: " + line.fontSize + ")");
+
+            // Jeśli to pierwsza niepusta linia lub ma maksymalny rozmiar czcionki
+            if (maxFontSize == null) {
+                maxFontSize = line.fontSize;
+                titleLines.add(line.text.trim());
+                System.out.println("Dodano pierwszą linię do tytułu: '" + line.text.trim() + "'");
+            } else if (Math.abs(line.fontSize - actualMaxFontSize) < 0.1) { // tolerancja na różnice w rozmiarze
+                titleLines.add(line.text.trim());
+                System.out.println("Dodano linię do tytułu: '" + line.text.trim() + "'");
+            } else if (line.fontSize < actualMaxFontSize - 1) { // znacząco mniejsza czcionka
+                System.out.println("Przerwano - znaleziono mniejszą czcionkę");
+                break;
+            }
+
+            // Przerwij jeśli znalazłeś słowa kluczowe wskazujące na koniec tytułu
+            if (line.text.toLowerCase().contains("streszczenie") ||
+                    line.text.toLowerCase().contains("abstract") ||
+                    line.text.toLowerCase().contains("wprowadzenie")) {
+                System.out.println("Przerwano - znaleziono słowo kluczowe końca tytułu");
+                break;
+            }
+        }
+
+        String result = String.join(" ", titleLines).trim();
+        System.out.println("Wynikowy tytuł: '" + result + "'");
+        System.out.println("=== KONIEC DEBUG ===");
+
+        return result;
+    }
+
+    // Alternatywna wersja - bardziej elastyczna
+    private String extractTitleAlternative(List<TextLine> textLines) {
+        int startIndex = skipUntilKrit(textLines);
+
+        // Znajdź największy rozmiar czcionki w pierwszych 15 liniach
+        double maxFontSize = 0;
+        for (int i = startIndex; i < Math.min(startIndex + 15, textLines.size()); i++) {
+            TextLine line = textLines.get(i);
+            if (!line.text.trim().isEmpty() && line.fontSize > maxFontSize) {
+                maxFontSize = line.fontSize;
+            }
+        }
+
+        // Zbierz wszystkie linie z największą czcionką (z małą tolerancją)
+        List<String> titleLines = new ArrayList<>();
+        for (int i = startIndex; i < textLines.size(); i++) {
+            TextLine line = textLines.get(i);
+
+            if (line.text.trim().isEmpty()) continue;
+
+            // Jeśli rozmiar czcionki jest blisko maksymalnego (tolerancja 0.5pt)
+            if (Math.abs(line.fontSize - maxFontSize) <= 0.5) {
+                titleLines.add(line.text.trim());
+            } else if (!titleLines.isEmpty()) {
+                // Jeśli już mamy jakieś linie tytułu i natrafiamy na mniejszą czcionkę, kończymy
+                break;
+            }
+
+            // Zabezpieczenie - nie więcej niż 5 linii tytułu
+            if (titleLines.size() >= 5) break;
         }
 
         return String.join(" ", titleLines).trim();

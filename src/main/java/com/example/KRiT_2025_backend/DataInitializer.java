@@ -402,7 +402,7 @@ public class DataInitializer implements CommandLineRunner {
         report1.setTitle("Analiza wydajności algorytmów uczenia maszynowego w sieciach 5G");
         report1.setAuthors(List.of("Dr Paweł Nowak", "Prof. Anna Wiśniewska"));
         report1.setDescription("Badanie porównawcze wydajności różnych algorytmów ML w środowisku sieci 5G");
-        report1.setPdfURL("https://example.com/reports/ml_5g_performance.pdf");
+        report1.setPdfUrl("https://example.com/reports/ml_5g_performance.pdf");
         report1.setKeywords(List.of("uczenie maszynowe", "5G", "wydajność", "algorytmy", "sieci telekomunikacyjne"));
         report1.setEvent(allEvents.get(1)); // Sesja techniczna nr 1 - AI w systemach radiowych
         reportRepository.save(report1);
@@ -412,7 +412,7 @@ public class DataInitializer implements CommandLineRunner {
         report2.setTitle("Bezpieczeństwo danych w chmurze obliczeniowej");
         report2.setAuthors(List.of("Mgr inż. Tomasz Kowalczyk"));
         report2.setDescription("Przegląd współczesnych metod zabezpieczania danych w infrastrukturze chmurowej");
-        report2.setPdfURL("https://example.com/reports/cloud_security.pdf");
+        report2.setPdfUrl("https://example.com/reports/cloud_security.pdf");
         report2.setKeywords(List.of("bezpieczeństwo", "chmura obliczeniowa", "dane", "szyfrowanie"));
         report2.setEvent(allEvents.get(2)); // Sesja techniczna nr 2 - Bezpieczeństwo sieci
         reportRepository.save(report2);
@@ -422,7 +422,7 @@ public class DataInitializer implements CommandLineRunner {
         report3.setTitle("Implementacja systemów GPS w autonomicznych pojazdach");
         report3.setAuthors(List.of("Dr Marcin Lewandowski", "Inż. Katarzyna Zając"));
         report3.setDescription("Studium przypadku zastosowania technologii GPS w pojazdach autonomicznych");
-        report3.setPdfURL("https://example.com/reports/gps_autonomous_vehicles.pdf");
+        report3.setPdfUrl("https://example.com/reports/gps_autonomous_vehicles.pdf");
         report3.setKeywords(List.of("GPS", "pojazdy autonomiczne", "nawigacja", "systemy lokalizacyjne"));
         report3.setEvent(allEvents.get(3)); // Sesja techniczna nr 3 - Systemy radionawigacyjne
         reportRepository.save(report3);
@@ -432,7 +432,7 @@ public class DataInitializer implements CommandLineRunner {
         report4.setTitle("Optymalizacja architektury sieci rdzeniowej 6G");
         report4.setAuthors(List.of("Prof. Janusz Kaczmarek"));
         report4.setDescription("Propozycja nowej architektury sieci rdzeniowej dla technologii 6G");
-        report4.setPdfURL("https://example.com/reports/6g_core_optimization.pdf");
+        report4.setPdfUrl("https://example.com/reports/6g_core_optimization.pdf");
         report4.setKeywords(List.of("6G", "sieć rdzeniowa", "optymalizacja", "architektura"));
         report4.setEvent(allEvents.get(4)); // Sesja techniczna nr 4 - Aspekty sieci rdzeniowych 5G i 6G
         reportRepository.save(report4);
@@ -442,7 +442,7 @@ public class DataInitializer implements CommandLineRunner {
         report5.setTitle("Zastosowanie blockchain w systemach IoT");
         report5.setAuthors(List.of("Dr hab. Aleksandra Nowicka", "Mgr Piotr Wójcik"));
         report5.setDescription("Analiza możliwości wykorzystania technologii blockchain w Internet of Things");
-        report5.setPdfURL("https://example.com/reports/blockchain_iot.pdf");
+        report5.setPdfUrl("https://example.com/reports/blockchain_iot.pdf");
         report5.setKeywords(List.of("blockchain", "IoT", "Internet rzeczy", "bezpieczeństwo", "decentralizacja"));
         report5.setEvent(allEvents.get(10)); // Sesja techniczna nr 8 - Aspekty sieciowe IoT
         reportRepository.save(report5);
@@ -452,7 +452,7 @@ public class DataInitializer implements CommandLineRunner {
         report6.setTitle("Kryptografia post-kwantowa w komunikacji bezprzewodowej");
         report6.setAuthors(List.of("Prof. dr hab. Michał Górski"));
         report6.setDescription("Przegląd algorytmów kryptograficznych odpornych na ataki komputerów kwantowych");
-        report6.setPdfURL("https://example.com/reports/post_quantum_crypto.pdf");
+        report6.setPdfUrl("https://example.com/reports/post_quantum_crypto.pdf");
         report6.setKeywords(List.of("kryptografia", "kwantowa", "bezpieczeństwo", "algorytmy", "komunikacja"));
         report6.setEvent(allEvents.get(8)); // Sesja techniczna nr 6 - Kryptografia i cyberbezpieczeństwo
         reportRepository.save(report6);
@@ -462,7 +462,7 @@ public class DataInitializer implements CommandLineRunner {
         report7.setTitle("Analiza propagacji fal milimetrowych w środowisku miejskim");
         report7.setAuthors(List.of("Dr Inż. Robert Szymański", "Mgr Anna Pietrzak"));
         report7.setDescription("Badanie charakterystyk propagacji fal mmWave w gęstej zabudowie miejskiej");
-        report7.setPdfURL("https://example.com/reports/mmwave_urban_propagation.pdf");
+        report7.setPdfUrl("https://example.com/reports/mmwave_urban_propagation.pdf");
         report7.setKeywords(List.of("fale milimetrowe", "propagacja", "środowisko miejskie", "mmWave"));
         report7.setEvent(allEvents.get(0)); // Referat plenarny nr 1 - Fale milimetrowe
         reportRepository.save(report7);
@@ -472,7 +472,7 @@ public class DataInitializer implements CommandLineRunner {
         report8.setTitle("Protokoły komunikacji w sieciach sensorowych");
         report8.setAuthors(List.of("Dr Kamila Zawadzka"));
         report8.setDescription("Porównanie efektywności różnych protokołów komunikacyjnych w WSN");
-        report8.setPdfURL("https://example.com/reports/sensor_network_protocols.pdf");
+        report8.setPdfUrl("https://example.com/reports/sensor_network_protocols.pdf");
         report8.setKeywords(List.of("sieci sensorowe", "protokoły", "komunikacja", "WSN", "efektywność"));
         report8.setEvent(allEvents.get(13)); // Sesja techniczna nr 11 - Bezprzewodowe sieci sensorowe
         reportRepository.save(report8);
@@ -482,7 +482,7 @@ public class DataInitializer implements CommandLineRunner {
         report9.setTitle("Kompresja wideo w czasie rzeczywistym dla aplikacji mobilnych");
         report9.setAuthors(List.of("Mgr inż. Łukasz Adamczyk", "Dr Monika Jabłońska"));
         report9.setDescription("Nowe algorytmy kompresji wideo zoptymalizowane dla urządzeń mobilnych");
-        report9.setPdfURL("https://example.com/reports/realtime_video_compression.pdf");
+        report9.setPdfUrl("https://example.com/reports/realtime_video_compression.pdf");
         report9.setKeywords(List.of("kompresja wideo", "czas rzeczywisty", "aplikacje mobilne", "algorytmy"));
         report9.setEvent(allEvents.get(11)); // Sesja techniczna nr 9 - AI w przetwarzaniu multimedialnym
         reportRepository.save(report9);
@@ -492,7 +492,7 @@ public class DataInitializer implements CommandLineRunner {
         report10.setTitle("Analiza QoS w sieciach telekomunikacyjnych nowej generacji");
         report10.setAuthors(List.of("Prof. Krzysztof Dudek"));
         report10.setDescription("Metodyki oceny i zapewnienia jakości usług w nowoczesnych sieciach");
-        report10.setPdfURL("https://example.com/reports/qos_next_gen_networks.pdf");
+        report10.setPdfUrl("https://example.com/reports/qos_next_gen_networks.pdf");
         report10.setKeywords(List.of("QoS", "jakość usług", "sieci telekomunikacyjne", "niezawodność"));
         report10.setEvent(allEvents.get(14)); // Sesja techniczna nr 12 - Jakość usług i niezawodność
         reportRepository.save(report10);
@@ -502,7 +502,7 @@ public class DataInitializer implements CommandLineRunner {
         report11.setTitle("Metryki niezawodności w sieciach krytycznych");
         report11.setAuthors(List.of("Dr hab. Ewa Malinowska", "Inż. Bartosz Kowal"));
         report11.setDescription("Definiowanie i pomiar niezawodności w systemach telekomunikacyjnych o krytycznym znaczeniu");
-        report11.setPdfURL("https://example.com/reports/reliability_metrics.pdf");
+        report11.setPdfUrl("https://example.com/reports/reliability_metrics.pdf");
         report11.setKeywords(List.of("niezawodność", "metryki", "systemy krytyczne", "pomiary"));
         report11.setEvent(allEvents.get(14)); // Sesja techniczna nr 12 - Jakość usług i niezawodność
         reportRepository.save(report11);
@@ -512,7 +512,7 @@ public class DataInitializer implements CommandLineRunner {
         report12.setTitle("Techniki antenowe MIMO w systemach 5G");
         report12.setAuthors(List.of("Dr Inż. Grzegorz Nowicki"));
         report12.setDescription("Projektowanie i optymalizacja anten MIMO dla sieci piątej generacji");
-        report12.setPdfURL("https://example.com/reports/mimo_antennas_5g.pdf");
+        report12.setPdfUrl("https://example.com/reports/mimo_antennas_5g.pdf");
         report12.setKeywords(List.of("MIMO", "anteny", "5G", "projektowanie", "optymalizacja"));
         report12.setEvent(allEvents.get(20)); // Sesja techniczna nr 13 - Technika antenowa
         reportRepository.save(report12);
@@ -522,7 +522,7 @@ public class DataInitializer implements CommandLineRunner {
         report13.setTitle("Beamforming w systemach komunikacji bezprzewodowej");
         report13.setAuthors(List.of("Mgr Natalia Wróbel", "Dr Artur Mazur"));
         report13.setDescription("Zaawansowane techniki kształtowania wiązki w komunikacji radiowej");
-        report13.setPdfURL("https://example.com/reports/beamforming_wireless.pdf");
+        report13.setPdfUrl("https://example.com/reports/beamforming_wireless.pdf");
         report13.setKeywords(List.of("beamforming", "komunikacja bezprzewodowa", "kształtowanie wiązki"));
         report13.setEvent(allEvents.get(20)); // Sesja techniczna nr 13 - Technika antenowa
         reportRepository.save(report13);
@@ -532,7 +532,7 @@ public class DataInitializer implements CommandLineRunner {
         report14.setTitle("Protokoły routingu w sieciach ad-hoc");
         report14.setAuthors(List.of("Prof. Stanisław Kowalski"));
         report14.setDescription("Porównanie wydajności protokołów routingu w sieciach MANET");
-        report14.setPdfURL("https://example.com/reports/adhoc_routing_protocols.pdf");
+        report14.setPdfUrl("https://example.com/reports/adhoc_routing_protocols.pdf");
         report14.setKeywords(List.of("routing", "sieci ad-hoc", "MANET", "protokoły"));
         report14.setEvent(allEvents.get(13)); // Sesja techniczna nr 11 - Sieci ad-hoc
         reportRepository.save(report14);
@@ -542,7 +542,7 @@ public class DataInitializer implements CommandLineRunner {
         report15.setTitle("Satelitarne systemy komunikacyjne nowej generacji");
         report15.setAuthors(List.of("Dr hab. Jerzy Białek", "Mgr inż. Sylwia Korek"));
         report15.setDescription("Przegląd technologii satelitarnych dla komunikacji globalnej");
-        report15.setPdfURL("https://example.com/reports/next_gen_satellite_systems.pdf");
+        report15.setPdfUrl("https://example.com/reports/next_gen_satellite_systems.pdf");
         report15.setKeywords(List.of("systemy satelitarne", "komunikacja globalna", "technologie"));
         report15.setEvent(allEvents.get(26)); // Sesja techniczna nr 19 - Systemy satelitarne
         reportRepository.save(report15);
@@ -552,7 +552,7 @@ public class DataInitializer implements CommandLineRunner {
         report16.setTitle("Cyfrowe przetwarzanie sygnałów w radiokomunikacji");
         report16.setAuthors(List.of("Dr Inż. Marek Zieliński"));
         report16.setDescription("Nowoczesne metody DSP w systemach radiokomunikacyjnych");
-        report16.setPdfURL("https://example.com/reports/dsp_radio_communication.pdf");
+        report16.setPdfUrl("https://example.com/reports/dsp_radio_communication.pdf");
         report16.setKeywords(List.of("DSP", "przetwarzanie sygnałów", "radiokomunikacja", "cyfrowe"));
         report16.setEvent(allEvents.get(25)); // Sesja techniczna nr 18 - Systemy radiokomunikacyjne specjalne
         reportRepository.save(report16);
@@ -562,7 +562,7 @@ public class DataInitializer implements CommandLineRunner {
         report17.setTitle("Architektura sieci Edge Computing");
         report17.setAuthors(List.of("Prof. Danuta Majewska", "Dr Wojciech Król"));
         report17.setDescription("Projektowanie infrastruktury edge computing dla aplikacji IoT");
-        report17.setPdfURL("https://example.com/reports/edge_computing_architecture.pdf");
+        report17.setPdfUrl("https://example.com/reports/edge_computing_architecture.pdf");
         report17.setKeywords(List.of("edge computing", "architektura", "IoT", "infrastruktura"));
         report17.setEvent(allEvents.get(28)); // Sesja techniczna nr 21 - Systemy chmurowe
         reportRepository.save(report17);
@@ -572,7 +572,7 @@ public class DataInitializer implements CommandLineRunner {
         report18.setTitle("Algorytmy kompresji bezstratnej dla danych medycznych");
         report18.setAuthors(List.of("Mgr inż. Agnieszka Lis"));
         report18.setDescription("Specjalizowane metody kompresji obrazów medycznych");
-        report18.setPdfURL("https://example.com/reports/medical_data_compression.pdf");
+        report18.setPdfUrl("https://example.com/reports/medical_data_compression.pdf");
         report18.setKeywords(List.of("kompresja", "dane medyczne", "obrazy", "bezstratna"));
         report18.setEvent(allEvents.get(27)); // Sesja techniczna nr 20 - Kompresja wizji
         reportRepository.save(report18);
@@ -582,7 +582,7 @@ public class DataInitializer implements CommandLineRunner {
         report19.setTitle("Sieci komórkowe w środowisku przemysłowym");
         report19.setAuthors(List.of("Dr hab. Ryszard Pawlak", "Inż. Magdalena Nowak"));
         report19.setDescription("Wdrożenie technologii 5G w aplikacjach przemysłu 4.0");
-        report19.setPdfURL("https://example.com/reports/cellular_industrial_networks.pdf");
+        report19.setPdfUrl("https://example.com/reports/cellular_industrial_networks.pdf");
         report19.setKeywords(List.of("sieci komórkowe", "przemysł 4.0", "5G", "aplikacje przemysłowe"));
         report19.setEvent(allEvents.get(24)); // Sesja techniczna nr 17 - Systemy komórkowe
         reportRepository.save(report19);
@@ -592,7 +592,7 @@ public class DataInitializer implements CommandLineRunner {
         report20.setTitle("Protokoły bezpieczeństwa w komunikacji M2M");
         report20.setAuthors(List.of("Dr Inż. Tomasz Czarnecki"));
         report20.setDescription("Analiza bezpieczeństwa komunikacji machine-to-machine");
-        report20.setPdfURL("https://example.com/reports/m2m_security_protocols.pdf");
+        report20.setPdfUrl("https://example.com/reports/m2m_security_protocols.pdf");
         report20.setKeywords(List.of("M2M", "bezpieczeństwo", "protokoły", "machine-to-machine"));
         report20.setEvent(allEvents.get(10)); // Sesja techniczna nr 8 - IoT
         reportRepository.save(report20);
@@ -602,7 +602,7 @@ public class DataInitializer implements CommandLineRunner {
         report21.setTitle("Interferometry radarowe w systemach lokalizacyjnych");
         report21.setAuthors(List.of("Prof. Zbigniew Kowalczyk", "Dr Joanna Michalska"));
         report21.setDescription("Zastosowanie interferometrii w precyzyjnych systemach radiolokalizacyjnych");
-        report21.setPdfURL("https://example.com/reports/radar_interferometry.pdf");
+        report21.setPdfUrl("https://example.com/reports/radar_interferometry.pdf");
         report21.setKeywords(List.of("interferometria", "radar", "lokalizacja", "precyzja"));
         report21.setEvent(allEvents.get(9)); // Sesja techniczna nr 7 - Systemy radiolokalizacyjne II
         reportRepository.save(report21);
@@ -612,7 +612,7 @@ public class DataInitializer implements CommandLineRunner {
         report22.setTitle("Adaptacyjne kodowanie kanałowe w sieciach bezprzewodowych");
         report22.setAuthors(List.of("Mgr inż. Karol Wesołowski"));
         report22.setDescription("Dynamiczne dostosowywanie parametrów kodowania do warunków kanału");
-        report22.setPdfURL("https://example.com/reports/adaptive_channel_coding.pdf");
+        report22.setPdfUrl("https://example.com/reports/adaptive_channel_coding.pdf");
         report22.setKeywords(List.of("kodowanie kanałowe", "adaptacyjne", "sieci bezprzewodowe"));
         report22.setEvent(allEvents.get(12)); // Sesja techniczna nr 10 - Aspekty radiowe 5G/6G I
         reportRepository.save(report22);
@@ -622,7 +622,7 @@ public class DataInitializer implements CommandLineRunner {
         report23.setTitle("Modelowanie propagacji w środowiskach indoor");
         report23.setAuthors(List.of("Dr hab. Elżbieta Dąbrowska"));
         report23.setDescription("Modele propagacyjne dla komunikacji wewnątrz budynków");
-        report23.setPdfURL("https://example.com/reports/indoor_propagation_modeling.pdf");
+        report23.setPdfUrl("https://example.com/reports/indoor_propagation_modeling.pdf");
         report23.setKeywords(List.of("propagacja", "indoor", "modelowanie", "budynki"));
         report23.setEvent(allEvents.get(22)); // Sesja techniczna nr 15 - Propagacja fal radiowych
         reportRepository.save(report23);
@@ -632,7 +632,7 @@ public class DataInitializer implements CommandLineRunner {
         report24.setTitle("Technologie transmisji telewizyjnej DVB-T2");
         report24.setAuthors(List.of("Inż. Marek Wilczyński", "Dr Anna Krawczyk"));
         report24.setDescription("Implementacja i optymalizacja standardu DVB-T2 w Polsce");
-        report24.setPdfURL("https://example.com/reports/dvb_t2_implementation.pdf");
+        report24.setPdfUrl("https://example.com/reports/dvb_t2_implementation.pdf");
         report24.setKeywords(List.of("DVB-T2", "telewizja", "transmisja", "standard"));
         report24.setEvent(allEvents.get(26)); // Sesja techniczna nr 19 - Systemy telewizyjne
         reportRepository.save(report24);
@@ -642,7 +642,7 @@ public class DataInitializer implements CommandLineRunner {
         report25.setTitle("Metody oceny jakości wideo w transmisji strumieniowej");
         report25.setAuthors(List.of("Prof. Andrzej Sobczak"));
         report25.setDescription("Obiektywne i subiektywne metody oceny jakości strumieni wideo");
-        report25.setPdfURL("https://example.com/reports/video_quality_assessment.pdf");
+        report25.setPdfUrl("https://example.com/reports/video_quality_assessment.pdf");
         report25.setKeywords(List.of("jakość wideo", "streaming", "ocena", "metryki"));
         report25.setEvent(allEvents.get(23)); // Sesja techniczna nr 16 - Jakość treści multimedialnych
         reportRepository.save(report25);
@@ -652,7 +652,7 @@ public class DataInitializer implements CommandLineRunner {
         report26.setTitle("Perceptualne modele jakości obrazu");
         report26.setAuthors(List.of("Dr Inż. Katarzyna Jankowska", "Mgr Paweł Koziński"));
         report26.setDescription("Modele uwzględniające percepcję wzrokową w ocenie jakości obrazu");
-        report26.setPdfURL("https://example.com/reports/perceptual_image_quality.pdf");
+        report26.setPdfUrl("https://example.com/reports/perceptual_image_quality.pdf");
         report26.setKeywords(List.of("percepcja", "jakość obrazu", "modele", "wzrok"));
         report26.setEvent(allEvents.get(23)); // Sesja techniczna nr 16 - Jakość treści multimedialnych
         reportRepository.save(report26);
@@ -662,7 +662,7 @@ public class DataInitializer implements CommandLineRunner {
         report27.setTitle("Zarządzanie zasobami w sieciach 5G");
         report27.setAuthors(List.of("Dr hab. Piotr Młynarski"));
         report27.setDescription("Algorytmy alokacji zasobów w heterogenicznych sieciach 5G");
-        report27.setPdfURL("https://example.com/reports/5g_resource_management.pdf");
+        report27.setPdfUrl("https://example.com/reports/5g_resource_management.pdf");
         report27.setKeywords(List.of("zarządzanie zasobami", "5G", "alokacja", "heterogeniczne"));
         report27.setEvent(allEvents.get(21)); // Sesja techniczna nr 14 - Aspekty radiowe 5G/6G II
         reportRepository.save(report27);
@@ -672,7 +672,7 @@ public class DataInitializer implements CommandLineRunner {
         report28.setTitle("Cyberbezpieczeństwo w infrastrukturze krytycznej");
         report28.setAuthors(List.of("Prof. dr hab. Jacek Mazurek", "Dr Beata Król"));
         report28.setDescription("Zabezpieczanie systemów telekomunikacyjnych infrastruktury krytycznej");
-        report28.setPdfURL("https://example.com/reports/critical_infrastructure_security.pdf");
+        report28.setPdfUrl("https://example.com/reports/critical_infrastructure_security.pdf");
         report28.setKeywords(List.of("cyberbezpieczeństwo", "infrastruktura krytyczna", "zabezpieczenia"));
         report28.setEvent(allEvents.get(15)); // Referat plenarny nr 3 - Cyberbezpieczeństwo
         reportRepository.save(report28);
@@ -682,7 +682,7 @@ public class DataInitializer implements CommandLineRunner {
         report29.setTitle("Zastosowanie sztucznej inteligencji w analizie ruchu sieciowego");
         report29.setAuthors(List.of("Mgr inż. Damian Wieczorek"));
         report29.setDescription("Wykorzystanie ML do predykcji i optymalizacji ruchu w sieciach");
-        report29.setPdfURL("https://example.com/reports/ai_network_traffic_analysis.pdf");
+        report29.setPdfUrl("https://example.com/reports/ai_network_traffic_analysis.pdf");
         report29.setKeywords(List.of("sztuczna inteligencja", "analiza ruchu", "predykcja", "optymalizacja"));
         report29.setEvent(allEvents.get(7)); // Sesja techniczna nr 5 - AI w systemach radiowych II
         reportRepository.save(report29);
@@ -692,7 +692,7 @@ public class DataInitializer implements CommandLineRunner {
         report30.setTitle("Przyszłość technologii 6G - wizja i wyzwania");
         report30.setAuthors(List.of("Prof. Krystyna Siwek", "Dr hab. Mariusz Kowal", "Inż. Aleksandra Nowak"));
         report30.setDescription("Analiza trendów i przewidywanych kierunków rozwoju technologii 6G");
-        report30.setPdfURL("https://example.com/reports/6g_future_vision.pdf");
+        report30.setPdfUrl("https://example.com/reports/6g_future_vision.pdf");
         report30.setKeywords(List.of("6G", "przyszłość", "technologie", "wizja", "rozwój"));
         report30.setEvent(allEvents.get(16));
         reportRepository.save(report30);
@@ -701,7 +701,7 @@ public class DataInitializer implements CommandLineRunner {
         report5.setTitle("Zastosowanie blockchain w systemach IoT");
         report5.setAuthors(List.of("Dr hab. Aleksandra Nowicka", "Mgr Piotr Wójcik"));
         report5.setDescription("Analiza możliwości wykorzystania technologii blockchain w Internet of Things");
-        report5.setPdfURL("https://example.com/reports/blockchain_iot.pdf");
+        report5.setPdfUrl("https://example.com/reports/blockchain_iot.pdf");
         report5.setKeywords(List.of("blockchain", "IoT", "Internet rzeczy", "bezpieczeństwo", "decentralizacja"));
         report5.setEvent(allEvents.get(2)); // Sesja techniczna nr 8 - Aspekty sieciowe IoT
         reportRepository.save(report31);
@@ -710,7 +710,7 @@ public class DataInitializer implements CommandLineRunner {
         report5.setTitle("Zastosowanie blockchain w systemach IoT");
         report5.setAuthors(List.of("Dr hab. Aleksandra Nowicka", "Mgr Piotr Wójcik"));
         report5.setDescription("Analiza możliwości wykorzystania technologii blockchain w Internet of Things");
-        report5.setPdfURL("https://example.com/reports/blockchain_iot.pdf");
+        report5.setPdfUrl("https://example.com/reports/blockchain_iot.pdf");
         report5.setKeywords(List.of("blockchain", "IoT", "Internet rzeczy", "bezpieczeństwo", "decentralizacja"));
         report5.setEvent(allEvents.get(4)); // Sesja techniczna nr 8 - Aspekty sieciowe IoT
         reportRepository.save(report32);
