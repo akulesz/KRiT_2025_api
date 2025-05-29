@@ -415,7 +415,7 @@ public class DataInitializer implements CommandLineRunner {
         report2.setPdfURL("https://example.com/reports/cloud_security.pdf");
         report2.setKeywords(List.of("bezpieczeństwo", "chmura obliczeniowa", "dane", "szyfrowanie"));
         report2.setEvent(allEvents.get(2)); // Sesja techniczna nr 2 - Bezpieczeństwo sieci
-        reportRepository.save(report1);
+        reportRepository.save(report2);
 
 
         Report report3 = new Report();
@@ -425,7 +425,7 @@ public class DataInitializer implements CommandLineRunner {
         report3.setPdfURL("https://example.com/reports/gps_autonomous_vehicles.pdf");
         report3.setKeywords(List.of("GPS", "pojazdy autonomiczne", "nawigacja", "systemy lokalizacyjne"));
         report3.setEvent(allEvents.get(3)); // Sesja techniczna nr 3 - Systemy radionawigacyjne
-        reportRepository.save(report1);
+        reportRepository.save(report3);
 
 
         Report report4 = new Report();
@@ -435,7 +435,7 @@ public class DataInitializer implements CommandLineRunner {
         report4.setPdfURL("https://example.com/reports/6g_core_optimization.pdf");
         report4.setKeywords(List.of("6G", "sieć rdzeniowa", "optymalizacja", "architektura"));
         report4.setEvent(allEvents.get(4)); // Sesja techniczna nr 4 - Aspekty sieci rdzeniowych 5G i 6G
-        reportRepository.save(report2);
+        reportRepository.save(report4);
 
 
         Report report5 = new Report();
@@ -445,7 +445,7 @@ public class DataInitializer implements CommandLineRunner {
         report5.setPdfURL("https://example.com/reports/blockchain_iot.pdf");
         report5.setKeywords(List.of("blockchain", "IoT", "Internet rzeczy", "bezpieczeństwo", "decentralizacja"));
         report5.setEvent(allEvents.get(10)); // Sesja techniczna nr 8 - Aspekty sieciowe IoT
-        reportRepository.save(report3);
+        reportRepository.save(report5);
 
 
         Report report6 = new Report();
