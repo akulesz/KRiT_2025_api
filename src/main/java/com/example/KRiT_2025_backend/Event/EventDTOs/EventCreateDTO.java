@@ -30,6 +30,7 @@ public class EventCreateDTO {
     //private String description;
     private  String building;
     private  String room;
+    private boolean isFavourite;
 
     private List<UUID> reportsId;
 }
