@@ -69,7 +69,7 @@ public class DataInitializer implements CommandLineRunner {
         report.setTitle("Raport 1");
         report.setAuthors(List.of("Jan Kowalski", "aga"));
         report.setDescription("Raport o nowych trendach w IT");
-        report.setPdfURL("https://example.com/raport.pdf");
+        report.setPdfUrl("https://example.com/raport.pdf");
         // Dodanie słów kluczowych
         report.setKeywords(List.of("nowe technologie", "IT", "trendy", "programowanie"));
         report.setEvent(event);
@@ -82,7 +82,7 @@ public class DataInitializer implements CommandLineRunner {
         report1.setTitle("Raport 2");
         report1.setAuthors(List.of("Jan Kowalski", "aga"));
         report1.setDescription("Raport o nowych trendach w IT");
-        report1.setPdfURL("https://example.com/raport.pdf");
+        report1.setPdfUrl("http://localhost:8080/uploads/7195b5bf-f15a-4696-987e-28b70b28247e_uploaded");
         // Dodanie słów kluczowych
         report1.setKeywords(List.of("nowe technologie", "IT", "trendy", "programowanie"));
         report1.setEvent(event);

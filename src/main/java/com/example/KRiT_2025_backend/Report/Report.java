@@ -30,7 +30,7 @@ public class Report {
     @Lob
     @Column
     String description;
-    String pdfURL;
+    String pdfUrl;
 
     // Przechowywanie słów kluczowych w osobnej tabeli
     @ElementCollection
@@ -50,7 +50,7 @@ public class Report {
                 ", title='" + title + '\'' +
                 ", author='" + authors + '\'' +
                 ", description='" + description + '\'' +
-                ", pdfURL='" + pdfURL + '\'' +
+                ", pdfUrl='" + pdfUrl + '\'' +
                 ", keywords=" + keywords +
 
                 '}';
