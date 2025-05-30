@@ -52,7 +52,7 @@ public class ReportService {
         report.setTitle(reportCreateDTO.getTitle());
         report.setAuthors(reportCreateDTO.getAuthors());
         report.setDescription(reportCreateDTO.getDescription());
-        report.setPdfURL(reportCreateDTO.getPdfURL());
+        report.setPdfUrl(reportCreateDTO.getPdfUrl());
         report.setKeywords(reportCreateDTO.getKeywords());
 
         Report savedReport = reportRepository.save(report);
@@ -69,7 +69,7 @@ public class ReportService {
         report.setTitle(reportDTO.getTitle());
         report.setDescription(reportDTO.getDescription());
         report.setAuthors(reportDTO.getAuthors());
-        report.setPdfURL(reportDTO.getPdfURL());
+        report.setPdfUrl(reportDTO.getPdfUrl());
         report.setKeywords(reportDTO.getKeywords());
 
         reportRepository.save(report);

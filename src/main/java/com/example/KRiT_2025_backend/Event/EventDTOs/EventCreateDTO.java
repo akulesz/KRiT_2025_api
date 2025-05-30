@@ -27,10 +27,10 @@ public class EventCreateDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private LocalDateTime dateTimeEnd;
 
-    private String description;
+    //private String description;
     private  String building;
     private  String room;
+    private boolean isFavourite;
 
     private List<UUID> reportsId;
-
 }
