@@ -1,4 +1,4 @@
-package com.example.KRiT_2025_backend.Auth.Security;
+package com.example.KRiT_2025_backend;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -7,7 +7,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -19,7 +18,7 @@ public class WebConfig implements WebMvcConfigurer {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
 //        config.addAllowedOrigin("http://172.20.10.4:8081");
-        config.addAllowedOrigin("http://localhost:64516");
+        config.addAllowedOrigin("http://localhost:60373");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
