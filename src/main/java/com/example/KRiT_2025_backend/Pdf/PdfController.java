@@ -92,9 +92,9 @@ public class PdfController {
     }
 
     private String generatePdfUrl(String fileName) {
-        String baseUrl2 = "http://172.20.10.4:8080";
+        String baseUrl = "http://172.20.10.8:8080";
         String baseUrl1 = "http://10.0.2.2:8080";
-        String baseUrl = "http://localhost:8080";
+        String baseUrl2 = "http://localhost:8080";
         return baseUrl + "/uploads/" + fileName;
     }
 

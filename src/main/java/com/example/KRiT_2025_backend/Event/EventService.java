@@ -131,7 +131,7 @@ public void deleteEventById(UUID id) {
         //event.setDescription(eventDTO.getDescription());
         event.setBuilding(eventDTO.getBuilding());
         event.setRoom(eventDTO.getRoom());
-        event.setFavourite(eventDTO.isFavourite());
+        //event.setFavourite(eventDTO.isFavourite());
 
         //usuwamy liste reportow
         event.getReports().clear();
