@@ -92,9 +92,11 @@ public class PdfController {
     }
 
     private String generatePdfUrl(String fileName) {
-        String baseUrl2 = "http://172.20.10.4:8080";
+        String baseUrl2 = "http://172.20.10.8:8080";
+        String baseUrl4 = "http://192.168.0.43:8080";
         String baseUrl1 = "http://10.0.2.2:8080";
-        String baseUrl = "http://localhost:8080";
+        String baseUrl3 = "http://localhost:8080";
+        String baseUrl = "https://3a8a-2a02-a312-c6ab-eb00-28e0-10ee-81f9-42fe.ngrok-free.app";
         return baseUrl + "/uploads/" + fileName;
     }
 
