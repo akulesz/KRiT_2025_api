@@ -17,8 +17,10 @@ public class WebConfig implements WebMvcConfigurer {
     public FilterRegistrationBean<CorsFilter> corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://172.20.10.8:8081");
-       // config.addAllowedOrigin("http://localhost:65162");
+//        config.addAllowedOrigin("http://172.20.10.8:8081");
+//        config.addAllowedOrigin("http://192.168.0.43:8081");
+//        config.addAllowedOrigin("http://localhost:55951");
+        config.addAllowedOrigin("https://popular-skink-square.ngrok-free.app/");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
