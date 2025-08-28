@@ -34,7 +34,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("🔥 DataInitializer odpalony!");
+        System.out.println("DataInitializer odpalony");
 
         String adminUsername = "admin";
         String adminRawPassword = "admin123";
